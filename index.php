@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<?php 
+ <?php 
     $faqs = [
         [
             "question" => "Come state implementando la recente decisione della Corte di giustizia dell'Unione europea (CGUE) relativa al diritto all'oblio?",
@@ -61,29 +52,53 @@
 
 
             ];
-
-
-            foreach ($faqs as $faq) {
-                foreach ($faq as $key => $value) {
-                    if( $key !== "response" ){
-                        echo "<h2>".$value."</h2>";
-                    }else if ($key == "response"){
-                        foreach ($value as $response => $paragraph) {
-                            echo "<p>".$paragraph."</p>";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+    <title>Domande frequenti - Privacy e termini</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Google-Logo.png" alt="">
+            <span>Privacy e termini</span>
+        </div>
+        
+        <ul class="list-inline">
+            <li>Introduzione</li>
+            <li>Norme sulla privacy</li>
+            <li>Termini di Servizio</li>
+            <li>Tecnologie</li>
+            <li> <span 
+                class="active">Domande Frequenti</span></li>
+        </ul>
+    </header>
+    <main>
+        <div class="container">
+            <?php
+                foreach ($faqs as $faq) {
+                    foreach ($faq as $key => $value) {
+                            if( $key !== "response" ){
+                                echo "<h2>".$value."</h2>";
+                            }else if ($key == "response"){
+                                foreach ($value as $response => $paragraph) {
+                                    echo "<p>".$paragraph."</p>";
+                                }
+                            }
+                            
                         }
-                    }
-                    
-                }
-            };
-
-
-
-
-
-
-
-
-?>   
+                    };
+            ?>   
+        </div>
+    </main>
 </body>
 </html>
 
